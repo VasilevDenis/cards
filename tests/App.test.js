@@ -1,28 +1,26 @@
-/** @type {import('jest')} */
-import { chromium } from 'playwright';
-import { exec } from 'child_process';
+import { jest } from '@jest/globals'
 
-setTimeout(() => {  }, 30000); // default Puppeteer timeout
+
+import puppeteer from 'puppeteer';
+
+jest.setTimeout(30000); // Set Puppeteer timeout
 
 describe('Credit Card Validator form', () => {
   let browser = null;
   let page = null;
-  const baseUrl = 'http://localhost:5173/'; // Assuming Vite server runs on port 3000
-  let serverProcess = null;
+  const baseUrl = 'http://localhost:3000'; // Update the base URL for Vite
 
   beforeAll(async () => {
-    browser = await chromium.launch();
+    browser = await puppeteer.launch();
     page = await browser.newPage();
   });
 
   afterAll(async () => {
     await browser.close();
-
   });
 
   test('should do something', async () => {
     await page.goto(baseUrl);
-    // Add your test logic here
+    // Add test logic for interacting with your Vite application
   });
 });
-
