@@ -24,3 +24,4 @@ describe('Credit Card Validator form', () => {
     // Add test logic for interacting with your Vite application
   });
 });
+
